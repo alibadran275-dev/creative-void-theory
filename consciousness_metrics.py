@@ -2,7 +2,7 @@ import numpy as np
 
 class ConsciousnessMetrics:
     """
-    تطبيق الفصل السادس: معادلة كثافة الوعي.
+    Implementation of Chapter 6: Consciousness Density Equation.
     C = (nu * log2(1 + R) * I_int) / (V_info * (1 + H_noise))
     """
     def __init__(self):
@@ -10,18 +10,18 @@ class ConsciousnessMetrics:
         
     def calculate_consciousness(self, field_delta, nu=1.0, R=2.0, noise_level=0.01):
         """
-        حساب كثافة الوعي للنظام.
+        Calculate the consciousness density of the system.
         """
-        # I_int: المعلومات المتكاملة (نستخدم التباين كمؤشر على التعقيد/التكامل)
+        # I_int: Integrated Information (variance used as a proxy for complexity/integration)
         I_int = np.var(field_delta)
         
-        # V_info: الحجم المعلوماتي (عدد الخلايا)
+        # V_info: Informational Volume (total number of cells)
         V_info = field_delta.size
         
-        # H_noise: الضوضاء
+        # H_noise: Noise level
         H_noise = noise_level
         
-        # تطبيق المعادلة
+        # Apply the equation
         C = (nu * np.log2(1 + R) * I_int) / (V_info * (1 + H_noise))
         
         return C
